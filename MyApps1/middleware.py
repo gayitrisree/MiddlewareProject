@@ -55,5 +55,14 @@ class SecondMiddleware(object):
         response = self.get_response(request)
         print('This line printed by SecondMiddleware at post-processing of request')
         return response
+class thirdMiddleware(object):
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        print('This line printed by SecondMiddleware at pre-processing of request')
+        response = self.get_response(request)
+        print('This line printed by SecondMiddleware at post-processing of request')
+        return response
 
 
